@@ -1,0 +1,12 @@
+{
+  "components.html": {
+    "imports": [
+      "core-scaffold",
+      "core-toolbar",
+      "core-header-panel",
+      "core-menu",
+      "core-item",
+      "core-iconset-svg"
+    ]
+  }
+}

@@ -1,11 +1,12 @@
 {
   "name": "chromeapps-starter-kit",
   "devDependencies": {
-    "through2": "^0.6.3",
-    "vinyl": "^0.4.3",
     "bower-config": "^0.5.2",
     "gulp": "^3.8.10",
-    "gulp-vulcanize": "^3.1.0"
+    "gulp-polymports": "https://github.com/webapplications-kr/gulp-polymports/archive/v0.1.0.tar.gz",
+    "gulp-vulcanize": "^3.1.0",
+    "through2": "^0.6.3",
+    "vinyl": "^0.4.3"
   },
   "engines": {
     "node": ">=0.8.0"
