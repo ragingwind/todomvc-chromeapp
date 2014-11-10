@@ -25,7 +25,7 @@ var htmlimport = {
 
     var stream = through.obj();
     var output = ['<!doctype html>', '<html>', '<head>'];
-    console.log(Object.keys(imports));
+
     Object.keys(imports).forEach(function(filename) {
       console.log('imports', filename, imports[filename]);
       imports[filename].forEach(function(link) {
