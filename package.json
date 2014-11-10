@@ -1,0 +1,13 @@
+{
+  "name": "chromeapps-starter-kit",
+  "devDependencies": {
+    "through2": "^0.6.3",
+    "vinyl": "^0.4.3",
+    "bower-config": "^0.5.2",
+    "gulp": "^3.8.10",
+    "gulp-vulcanize": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
