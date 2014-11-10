@@ -1,0 +1,8 @@
+{
+    "appName": {
+        "message": "Chrome Apps Starter Kit"
+    },
+    "appDescription": {
+        "message": "This app show how to make a Chrome App with Polymer"
+    }
+}

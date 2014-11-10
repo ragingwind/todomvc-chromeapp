@@ -1,0 +1,31 @@
+<link rel="import" href="../components.html">
+
+<polymer-element name="app-main">
+<template>
+  <style>
+  .content {
+    padding: 20px;
+  }
+  core-item[icon="polymer"] {
+    color: #a4c639;
+  }
+  </style>
+
+  <core-scaffold responsiveWidth="1024px">
+  <core-header-panel navigation flex>
+    <core-toolbar>Menu</core-toolbar>
+    <core-menu>
+      <core-item icon="home" label="Home"></core-item>
+      <core-item icon="account-box" label="Profile"></core-item>
+      <core-item icon="settings" label="Settings"></core-item>
+    </core-menu>
+  </core-header-panel>
+    <div tool>Drawer-Content App</div>
+    <div fit class="content">
+      Alo, Aloaaaaa
+    </div>
+  </core-scaffold>
+</template>
+
+<script src="app-main.js"></script>
+</polymer-element>
