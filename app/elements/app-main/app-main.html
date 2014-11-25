@@ -3,17 +3,25 @@
 <polymer-element name="app-main">
 <template>
   <style>
-  .content {
-    padding: 20px;
-  }
-  core-item[icon="polymer"] {
-    color: #a4c639;
-  }
+    .content {
+      padding: 20px;
+    }
+
+    core-item[icon="home"] {
+      color: #a4c639;
+    }
+
+    core-toolbar {
+      background-image: url("../../images/chromeapps-logo.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
   </style>
 
-  <core-scaffold responsiveWidth="1024px">
+  <core-scaffold responsiveWidth="640px">
   <core-header-panel navigation flex>
-    <core-toolbar>Menu</core-toolbar>
+    <core-toolbar class="tall coverimg">
+    </core-toolbar>
     <core-menu>
       <core-item icon="home" label="Home"></core-item>
       <core-item icon="account-box" label="Profile"></core-item>
