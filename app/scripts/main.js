@@ -2,8 +2,9 @@
 
 // Listens for the app launching then creates the window
 chrome.app.runtime.onLaunched.addListener(function() {
-  var width = 500;
-  var height = 300;
+  // Nexus 5 Size
+  var width = 360;
+  var height = 640;
 
   chrome.app.window.create('index.html', {
     id: 'main',
