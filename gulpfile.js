@@ -3,7 +3,7 @@ var path = require('path');
 var vulcanize = require('gulp-vulcanize');
 var polymports = require('gulp-polymports');
 
-var configs =
+var configs = {
   elements: 'app/elements/'
 };
 
