@@ -7,32 +7,54 @@
       padding: 20px;
     }
 
+    [drawer] {
+      background-color: #fff;
+    }
+
     core-item[icon="home"] {
       color: #a4c639;
     }
 
-    core-toolbar {
+    core-item[icon=account-box] {
+      color: #E04D2B;
+    }
+
+    core-item[icon=settings] {
+      color: #F7D945;
+    }
+
+    [drawer] core-toolbar {
       background-image: url("../../images/chromeapps-logo.jpg");
       background-size: cover;
       background-repeat: no-repeat;
     }
+
+    [main] core-toolbar {
+      background-color: #68BEF7;
+    }
   </style>
 
-  <core-scaffold responsiveWidth="640px">
-  <core-header-panel navigation flex>
-    <core-toolbar class="tall coverimg">
-    </core-toolbar>
-    <core-menu>
-      <core-item icon="home" label="Home"></core-item>
-      <core-item icon="account-box" label="Profile"></core-item>
-      <core-item icon="settings" label="Settings"></core-item>
-    </core-menu>
-  </core-header-panel>
-    <div tool>Drawer-Content App</div>
-    <div fit class="content">
-      Alo, Aloaaaaa
-    </div>
-  </core-scaffold>
+  <core-drawer-panel id="drawerPanel" responsiveWidth="600px">
+    <!-- Left drawer panel -->
+    <core-header-panel drawer flex>
+      <core-toolbar class="tall coverimg"></core-toolbar>
+      <core-menu>
+        <core-item icon="home" label="Home"></core-item>
+        <core-item icon="account-box" label="Profile"></core-item>
+        <core-item icon="settings" label="Settings"></core-item>
+      </core-menu>
+    </core-header-panel>
+
+    <!-- Right main panel -->
+    <core-header-panel main>
+      <core-toolbar class="tall">
+        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+      </core-toolbar>
+      <div fit class="content">
+        Alo, Alo
+      </div>
+    </core-header-panel>
+  </core-drawer-panel>
 </template>
 
 <script src="app-main.js"></script>
