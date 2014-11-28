@@ -1,12 +1,9 @@
 <link rel="import" href="../components.html">
+<link rel="import" href="../basic-cards/basic-cards.html">
 
 <polymer-element name="app-main">
 <template>
   <style>
-    .content {
-      padding: 20px;
-    }
-
     [drawer] {
       background-color: #fff;
     }
@@ -50,9 +47,7 @@
       <core-toolbar class="tall">
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
       </core-toolbar>
-      <div fit class="content">
-        Alo, Alo
-      </div>
+      <basic-cards></basic-cards>
     </core-header-panel>
   </core-drawer-panel>
 </template>
