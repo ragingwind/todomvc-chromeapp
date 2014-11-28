@@ -1,0 +1,42 @@
+<link rel="import" href="../components.html">
+
+<polymer-element name="basic-card">
+<template>
+  <style>
+  :host {
+    display: block;
+    position: relative;
+    background-color: #efefef;
+    padding: 20px;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  .card-header {
+    margin-bottom: 10px;
+  }
+
+  .card-header ::content h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+
+  .card-header ::content img {
+    width: 70px;
+    border-radius: 50%;
+    margin: 10px;
+  }
+
+  </style>
+
+  <div class="card-header" layout horizontal center>
+    <content select="img"></content>
+    <content select="h2"></content>
+  </div>
+  <content></content>
+</template>
+
+<script src="basic-card.js"></script>
+</polymer-element>
