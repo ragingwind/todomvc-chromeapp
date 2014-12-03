@@ -7,7 +7,8 @@
       "core-menu",
       "core-item",
       "core-iconset-svg",
-      "paper-icon-button"
+      "paper-icon-button",
+      "paper-shadow"
     ]
   }
 }

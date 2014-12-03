@@ -7,7 +7,7 @@ var configs = {
   elements: 'app/elements/'
 };
 
-gulp.task('vulcanize:components', function() {
+gulp.task('components', function() {
   return polymports.src(require('./components.json'))
   .pipe(vulcanize({
     dest: path.join(__dirname, configs.elements),

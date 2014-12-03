@@ -7,7 +7,6 @@
     display: block;
     position: relative;
     background-color: #efefef;
-    padding: 20px;
     width: 100%;
     font-size: 1.2rem;
     font-weight: 300;
@@ -29,13 +28,18 @@
     margin: 10px;
   }
 
-  </style>
+  :host paper-shadow {
+    padding: 20px;
+  }
 
+  </style>
+  <paper-shadow z="1">
   <div class="card-header" layout horizontal center>
     <content select="img"></content>
     <content select="h2"></content>
   </div>
   <content></content>
+  </paper-shadow>
 </template>
 
 <script src="basic-card.js"></script>
