@@ -1,5 +1,5 @@
 <link rel="import" href="../components.html">
-<link rel="import" href="../basic-cards/basic-cards.html">
+<link rel="import" href="../post-card/post-list.html">
 
 <polymer-element name="app-main">
 <template>
@@ -47,7 +47,7 @@
       <core-toolbar class="tall">
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
       </core-toolbar>
-      <basic-cards></basic-cards>
+      <post-list posts="{{posts}}"></post-list>
     </core-header-panel>
   </core-drawer-panel>
 </template>
