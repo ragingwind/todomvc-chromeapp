@@ -1,5 +1,6 @@
 <link rel="import" href="../bundles/polymer-elements.html">
-<link rel="import" href="../post-card/post-list.html">
+<link rel="import" href="../name-card-list/name-card-list.html">
+<link rel="import" href="../name-card-storage/name-card-storage.html">
 
 <polymer-element name="app-main">
 <template>
@@ -29,6 +30,23 @@
     [main] core-toolbar {
       background-color: #68BEF7;
     }
+
+    [main] core-toolbar > div.title {
+      font-size: 28px;
+      color:white;
+    }
+
+    [main] core-toolbar > div.notification {
+      font-size: 16px;
+      color:grey;
+    }
+
+    paper-fab {
+      position: absolute !important;
+      bottom: 27px;
+      right: 1em;
+      z-index: 10;
+    }
   </style>
 
   <core-drawer-panel id="drawerPanel" responsiveWidth="600px">
@@ -46,10 +64,28 @@
     <core-header-panel main>
       <core-toolbar class="tall">
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+        <div flex></div>
+        <paper-icon-button icon="delete"></paper-icon-button>
+        <paper-icon-button icon="search"></paper-icon-button>
+        <paper-icon-button icon="more-vert"></paper-icon-button>
+        <div class="middle title">
+          <div>Chrome Apps Start Kit</div>
+          <div style="color: #666; font-size: 18px;">some stuffs align to the bottom</div>
+        </div>
+        <div class="bottom notification">
+          Notification
+        </div>
       </core-toolbar>
-      <post-list posts="{{posts}}"></post-list>
+      <name-card-storage id="storage" cards={{cards}}></name-card-storage>
+      <div>
+        <paper-input id="newNoteInput"
+               floatingLabel
+               label="Add a new note"></paper-input>
+      </div>
+      <name-card-list id="list" cards={{cards}}></name-card-list>
     </core-header-panel>
   </core-drawer-panel>
+  <paper-fab icon="icons:add" on-click="{{showNewNameCardInput}}"></paper-fab>
 </template>
 
 <script src="app-main.js"></script>

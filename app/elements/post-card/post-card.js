@@ -1,1 +1,0 @@
-Polymer('post-card', {});

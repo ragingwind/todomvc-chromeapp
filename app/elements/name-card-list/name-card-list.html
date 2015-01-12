@@ -1,0 +1,35 @@
+<link rel="import" href="../bundles/polymer-elements.html">
+<link rel="import" href="../name-card/name-card.html">
+
+<polymer-element name="name-card-list" attributes="cards">
+<template>
+  <style>
+  :host {
+    display: block;
+    width: 100%;
+  }
+
+  name-card {
+    margin-bottom: 30px;
+  }
+
+  .container {
+    width: 80%;
+    margin: 36px auto;
+  }
+
+  </style>
+
+  <div class="container" layout vertical center>
+    <template repeat="{{card in cards}}">
+      <name-card>
+        <img src="{{card.avatar}}" width="70" height="70">
+        <h2>{{card.username}}</h2>
+        <p>{{card.text}}</p>
+      </name-card>
+    </template>
+  </div>
+</template>
+
+<script src="name-card-list.js"></script>
+</polymer-element>

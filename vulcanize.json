@@ -9,7 +9,10 @@
         "core-item",
         "core-iconset-svg",
         "paper-icon-button",
-        "paper-shadow"
+        "paper-shadow",
+        "paper-fab",
+        "paper-input",
+        "paper-title"
       ]
     }
   }
