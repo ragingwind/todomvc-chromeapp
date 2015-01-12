@@ -19,6 +19,11 @@ gulp.task('vulcanize:bundles', function() {
     .pipe(gulp.dest(configs.bundles));
 });
 
+// Run the Chrome Apps as debug mode
+gulp.task('run:debug', function() {
+  gulp.watch('vulcanize.json', ['vulcanize:bundles']);
+});
+
 // Build your Chrome App
 gulp.task('build', ['vulcanize:bundles'], function() {
 });
