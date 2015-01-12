@@ -1,6 +1,4 @@
 node_modules
-app/components
-app/elements/components.*
+app/elements/bundles
 dist
-
-
+bower_components
