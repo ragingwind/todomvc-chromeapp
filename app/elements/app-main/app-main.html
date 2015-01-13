@@ -1,6 +1,7 @@
 <link rel="import" href="../bundles/polymer-elements.html">
 <link rel="import" href="../name-card-list/name-card-list.html">
 <link rel="import" href="../name-card-storage/name-card-storage.html">
+<link rel="import" href="../name-card-searchbox/name-card-searchbox.html">
 
 <polymer-element name="app-main">
 <template>
@@ -66,7 +67,7 @@
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
         <div flex></div>
         <paper-icon-button icon="delete"></paper-icon-button>
-        <paper-icon-button icon="search"></paper-icon-button>
+        <name-card-searchbox id="searchbox"></name-card-searchbox>
         <paper-icon-button icon="more-vert"></paper-icon-button>
         <div class="middle title">
           <div>Chrome Apps Start Kit</div>
@@ -77,7 +78,7 @@
         </div>
       </core-toolbar>
       <name-card-storage id="storage" cards={{cards}}></name-card-storage>
-      <div>
+      <div class="inputbox">
         <paper-input id="newNoteInput"
                floatingLabel
                label="Add a new note"></paper-input>
@@ -85,7 +86,7 @@
       <name-card-list id="list" cards={{cards}}></name-card-list>
     </core-header-panel>
   </core-drawer-panel>
-  <paper-fab icon="icons:add" on-click="{{showNewNameCardInput}}"></paper-fab>
+  <paper-fab icon="icons:add" on-tab="{{showNewNameCardInput}}"></paper-fab>
 </template>
 
 <script src="app-main.js"></script>

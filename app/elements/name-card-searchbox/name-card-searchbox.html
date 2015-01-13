@@ -1,0 +1,18 @@
+<link rel="import" href="../bundles/polymer-elements.html">
+
+<polymer-element name="name-card-searchbox">
+<template>
+  <style>
+  :host {
+    margin: 0;
+    padding: 0;
+    height: 40px;
+  }
+  </style>
+  <paper-icon-button on-click="{{toggle}}" icon="search">></paper-icon-button>
+  <paper-input id="searchInput" label="Searching" hidden?="{{!active}}"></paper-input>
+</template>
+
+<script src="name-card-searchbox.js"></script>
+
+</polymer-element>
