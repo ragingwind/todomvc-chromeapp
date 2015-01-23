@@ -1,7 +1,7 @@
 <link rel="import" href="../bundles/polymer-elements.html">
 <link rel="import" href="../name-card-list/name-card-list.html">
 <link rel="import" href="../name-card-storage/name-card-storage.html">
-<link rel="import" href="../name-card-searchbox/name-card-searchbox.html">
+<link rel="import" href="../name-card-search/name-card-search.html">
 
 <polymer-element name="app-main">
 <template>
@@ -50,6 +50,9 @@
     }
   </style>
 
+  <!-- Search panel -->
+  <name-card-search id="search" narrow="{{narrow}}"></name-card-search>
+
   <core-drawer-panel id="drawerPanel" responsiveWidth="600px">
     <!-- Left drawer panel -->
     <core-header-panel drawer flex>
@@ -67,7 +70,7 @@
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
         <div flex></div>
         <paper-icon-button icon="delete"></paper-icon-button>
-        <name-card-searchbox id="searchbox"></name-card-searchbox>
+        <paper-icon-button on-click="{{toggle}}" icon="search">></paper-icon-button>
         <paper-icon-button icon="more-vert"></paper-icon-button>
         <div class="middle title">
           <div>Chrome Apps Start Kit</div>

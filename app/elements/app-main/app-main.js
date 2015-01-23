@@ -10,5 +10,8 @@ Polymer('app-main', {
     console.log('added', this.cards);
   },
   ready: function() {
+  },
+  toggle: function() {
+    this.$.search.toggle();
   }
 });
