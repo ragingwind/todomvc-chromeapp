@@ -46,7 +46,7 @@
   <core-header-panel mode="standard" fit>
     <core-toolbar class="{{ {'core-narrow': narrow} | tokenList}">
       <paper-icon-button icon="arrow-back" on-tap="{{toggle}}"></paper-icon-button>
-      <input id="searchbox" placeholder="Search for" flex>
+      <input id="searchbox" placeholder="Search for" flex tabindex="0">
     </core-toolbar>
     <core-menu on-core-select="{{onSelect}}">
       <template repeat="{{p in previousSearches}}">

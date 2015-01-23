@@ -10,5 +10,8 @@
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "todomvc-common": "^0.3.1"
   }
 }
