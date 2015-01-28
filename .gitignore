@@ -1,5 +1,4 @@
 node_modules
-app/elements/bundles
+app/bower_components
+app/elements/common
 dist
-bower_components
-npm-debug.log
