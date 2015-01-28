@@ -1,7 +1,8 @@
-<link rel="import" href="../bundles/polymer-elements.html">
-<link rel="import" href="../name-card-list/name-card-list.html">
-<link rel="import" href="../name-card-storage/name-card-storage.html">
-<link rel="import" href="../name-card-search/name-card-search.html">
+<link rel="import" href="../../bower_components/chromeapps-starter-kit/polymer-elements.html">
+<link rel="import" href="../todo-list/todo-list.html">
+<link rel="import" href="../todo-list/todo-storage.html">
+<link rel="import" href="../todo-list/todo-search.html">
+<link rel="import" href="../todo-list/todo-input.html">
 
 <polymer-element name="app-main">
 <template>
@@ -10,36 +11,28 @@
       background-color: #fff;
     }
 
-    core-item[icon="home"] {
-      color: #a4c639;
+    core-item {
+      color: rgb(131, 117, 111);
     }
 
-    core-item[icon=account-box] {
-      color: #E04D2B;
-    }
-
-    core-item[icon=settings] {
-      color: #F7D945;
+    [main] {
+      background: #eaeaea url('../../bower_components/todomvc-common/bg.png');
     }
 
     [drawer] core-toolbar {
-      background-image: url("../../images/chromeapps-logo.jpg");
+      background: #fafafa url("../../images/todomvc-icon.png");
       background-size: cover;
       background-repeat: no-repeat;
     }
 
     [main] core-toolbar {
-      background-color: #68BEF7;
-    }
-
-    [main] core-toolbar > div.title {
-      font-size: 28px;
-      color:white;
-    }
-
-    [main] core-toolbar > div.notification {
-      font-size: 16px;
-      color:grey;
+      border-bottom: 1px solid #6c615c;
+      background: #8d7d77;
+      background: -webkit-linear-gradient(top, rgba(132, 110, 100, 0.8), rgba(101, 84, 76, 0.8));
+      line-height: 43px;
+      font-size: 20px;
+      color: rgb(217, 217, 217);
+      text-shadow: rgb(191, 191, 191) 0px -1px 0px;
     }
 
     paper-fab {
@@ -47,49 +40,42 @@
       bottom: 27px;
       right: 1em;
       z-index: 10;
+      background: #8d7d77;
+      background: -webkit-linear-gradient(top, rgba(132, 110, 100, 0.8), rgba(101, 84, 76, 0.8));
     }
   </style>
+  <!-- Storage -->
+  <todo-storage id="storage" cards={{cards}}></todo-storage>
 
   <!-- Search panel -->
-  <name-card-search id="search" narrow="{{narrow}}"></name-card-search>
+  <todo-search id="search" narrow="{{narrow}}"></todo-search>
 
+  <!-- Drawer panel -->
   <core-drawer-panel id="drawerPanel" responsiveWidth="600px">
     <!-- Left drawer panel -->
     <core-header-panel drawer flex>
       <core-toolbar class="tall coverimg"></core-toolbar>
       <core-menu>
-        <core-item icon="home" label="Home"></core-item>
-        <core-item icon="account-box" label="Profile"></core-item>
-        <core-item icon="settings" label="Settings"></core-item>
+        <core-item icon="view-agenda" label="List"></core-item>
+        <core-item icon="star" label="Starred"></core-item>
+        <core-item icon="delete" label="Trash"></core-item>
       </core-menu>
     </core-header-panel>
 
     <!-- Right main panel -->
     <core-header-panel main>
-      <core-toolbar class="tall">
+      <core-toolbar id="header">
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
         <div flex></div>
         <paper-icon-button icon="delete"></paper-icon-button>
         <paper-icon-button on-click="{{toggle}}" icon="search">></paper-icon-button>
         <paper-icon-button icon="more-vert"></paper-icon-button>
-        <div class="middle title">
-          <div>Chrome Apps Start Kit</div>
-          <div style="color: #666; font-size: 18px;">some stuffs align to the bottom</div>
-        </div>
-        <div class="bottom notification">
-          Notification
-        </div>
       </core-toolbar>
-      <name-card-storage id="storage" cards={{cards}}></name-card-storage>
-      <div class="inputbox">
-        <paper-input id="newNoteInput"
-               floatingLabel
-               label="Add a new note"></paper-input>
-      </div>
-      <name-card-list id="list" cards={{cards}}></name-card-list>
+      <todo-input id="input"></todo-input>
+      <todo-list id="notes" cards={{cards}}></todo-list>
     </core-header-panel>
   </core-drawer-panel>
-  <paper-fab icon="icons:add" on-tab="{{showNewNameCardInput}}"></paper-fab>
+  <paper-fab icon="icons:add" on-tap="{{showNewNameCardInput}}"></paper-fab>
 </template>
 
 <script src="app-main.js"></script>

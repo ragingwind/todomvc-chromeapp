@@ -1,6 +1,6 @@
-<link rel="import" href="../bundles/polymer-elements.html">
+<link rel="import" href="../../bower_components/chromeapps-starter-kit/polymer-elements.html">
 
-<polymer-element name="name-card">
+<polymer-element name="todo-card">
 <template>
   <style>
   :host {
@@ -31,16 +31,16 @@
   :host paper-shadow {
     padding: 20px;
   }
-
   </style>
   <paper-shadow z="1">
   <div class="card-header" layout horizontal center>
-    <content select="img"></content>
     <content select="h2"></content>
   </div>
-  <content></content>
+  <div class="card-body" layout horizontal center>
+    <content></content>
+  </div>
   </paper-shadow>
 </template>
 
-<script src="name-card.js"></script>
+<script src="todo-card.js"></script>
 </polymer-element>

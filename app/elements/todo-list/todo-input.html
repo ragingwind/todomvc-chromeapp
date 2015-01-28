@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/chromeapps-starter-kit/polymer-elements.html">
+
+<polymer-element name="todo-input" attributes="active">
+<template>
+  <style>
+  :host {
+    display: block;
+  }
+
+  :host([active]) {
+    display: block;
+  }
+
+  .container {
+    width: 90%;
+    margin: 36px 5%;
+    /*background-color: rgb(250, 250, 250);*/
+    /*font-size: 24px;*/
+    /*background-color: rgba(0, 0, 0, 0.0196078);*/
+    background-color: rgba(255, 255, 255, 0.901961);
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: rgb(204, 204, 204);
+  }
+
+  paper-input {
+    width: 90%;
+  }
+  </style>
+
+  <div class="container" layout vertical center>
+      <paper-input id="title" on-blur={{blur}} label="Title"></paper-input>
+      <paper-input id="note" on-blur={{blur}}
+             label="Add a new note" on-focus={{focus}} tabindex="0"></paper-input>
+    <div class="buttons">
+      <paper-button id="write" raised class="colored" role="button">Write</paper-button>
+    </div>
+  </div>
+</template>
+<script src="todo-input.js"></script>
+</polymer-element>

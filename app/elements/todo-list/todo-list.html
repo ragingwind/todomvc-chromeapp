@@ -1,0 +1,53 @@
+<link rel="import" href="../../bower_components/chromeapps-starter-kit/polymer-elements.html">
+<link rel="import" href="todo-card.html">
+
+<polymer-element name="todo-list" attributes="cards">
+<template>
+  <style>
+  :host {
+    display: block;
+    width: 100%;
+  }
+
+  todo-card {
+    margin-bottom: 30px;
+  }
+
+  .container {
+    width: 90%;
+    margin: 36px auto;
+  }
+
+  paper-input {
+    width: 100%;
+  }
+
+  :host #inputform {
+    display: none;
+  }
+
+  :host([activeInput]) #inputform {
+    display: block;
+  }
+
+  .inputbox {
+    position: relative;
+    background-color: rgb(250, 250, 250);
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  </style>
+
+  <div class="container" layout vertical center>
+    <template repeat="{{card in cards}}">
+      <todo-card>
+        <h2>{{card.username}}</h2>
+        <p>{{card.text}}</p>
+      </todo-card>
+    </template>
+  </div>
+</template>
+
+<script src="todo-list.js"></script>
+</polymer-element>
