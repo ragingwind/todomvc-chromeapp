@@ -86,8 +86,12 @@
   <!-- Search panel -->
   <todo-search id="search" narrow="{{narrow}}"></todo-search>
 
+  <!-- Floating action button -->
+  <paper-fab icon="icons:add" on-tap="{{showNewNameCardInput}}"></paper-fab>
+
   <!-- Drawer panel -->
   <core-drawer-panel id="drawerPanel" responsiveWidth="600px" narrow="{{narrow}}">
+
     <!-- Left drawer panel -->
     <core-header-panel drawer flex>
       <core-toolbar class="tall">
@@ -98,9 +102,10 @@
       </div>
       </core-toolbar>
       <core-menu>
-        <core-item icon="view-agenda" label="List"></core-item>
-        <core-item icon="star" label="Starred"></core-item>
-        <core-item icon="delete" label="Trash"></core-item>
+        <core-item icon="list" label="All"></core-item>
+        <core-item icon="schedule" label="Active"></core-item>
+        <core-item icon="done" label="Completed"></core-item>
+        <core-item icon="delete" label="Clear completed"></core-item>
       </core-menu>
     </core-header-panel>
 
@@ -109,15 +114,14 @@
       <core-toolbar id="header" class="{{ {tall : !narrow} | tokenList }}">
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
         <div flex></div>
-        <paper-icon-button icon="delete"></paper-icon-button>
         <paper-icon-button on-click="{{toggle}}" icon="search">></paper-icon-button>
         <paper-icon-button icon="more-vert"></paper-icon-button>
       </core-toolbar>
       <todo-input id="input"></todo-input>
       <todo-list id="notes" cards={{cards}}></todo-list>
     </core-header-panel>
+
   </core-drawer-panel>
-  <paper-fab icon="icons:add" on-tap="{{showNewNameCardInput}}"></paper-fab>
 </template>
 
 <script src="app-main.js"></script>
