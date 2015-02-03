@@ -12,7 +12,8 @@
   	"app": {
   		"background": {
   			"scripts": [
-  				"scripts/main.js"
+  				"scripts/main.js",
+          "scripts/livereload.js"
   			]
   		}
   	}
