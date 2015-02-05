@@ -116,8 +116,8 @@
         <paper-icon-button on-click="{{toggleSearchView}}" icon="search">></paper-icon-button>
         <paper-icon-button icon="more-vert"></paper-icon-button>
       </core-toolbar>
-      <todo-input id="input"></todo-input>
-      <todo-list id="notes" cards={{cards}}></todo-list>
+      <todo-input id="input" on-tap="{{toggleInputForm}}" on-new-todo="{{addNewTodo}}"></todo-input>
+      <todo-list id="notes" todos={{todos}}></todo-list>
     </core-header-panel>
 
   </core-drawer-panel>

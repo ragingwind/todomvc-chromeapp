@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/chromeapps-starter-kit/polymer-elements.html">
 
-<polymer-element name="todo-input" attributes="active">
+<polymer-element name="todo-input">
 <template>
   <link rel="stylesheet" href="todo.css">
   <style>
@@ -73,7 +73,7 @@
   </style>
 
   <div class="todoapp container" layout vertical center>
-    <paper-input id="new-todo" floatinglabel on-focusin={{focusin}} disabled on-focus={{onFocus}} on-blur={{blur}} label="What needs to be done"></paper-input>
+    <paper-input id="new-todo" floatinglabel on-focusin={{focusin}} disabled on-blur={{blur}} on-change="{{add}}" value="{{newTodo}}" label="What needs to be done"></paper-input>
   </div>
 </template>
 <script src="todo-input.js"></script>

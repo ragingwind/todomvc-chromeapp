@@ -1,5 +1,11 @@
 Polymer('todo-input', {
   active: false,
+  add: function() {
+    this.async(function() {
+      this.fire('new-todo', this.newTodo);
+      this.$['new-todo'].blur();
+    });
+  },
   toggle: function() {
     this.active = !this.active;
     if (this.active) {
