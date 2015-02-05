@@ -5,11 +5,8 @@ var vulcanize = require('gulp-vulcanize');
 var polymports = require('gulp-polymports');
 var bowercfg = require('bower-config').read();
 var livereload = require('gulp-livereload');
-var reload = function(c) {
-  gutil.log('Reloading ChromeApp', gutil.colors.cyan(c.type), ':', path.basename(c.path));
-  livereload.reload();
-}
 var pkg = require('./package.json');
+var args = require('minimist')(process.argv.slice(2), {});
 
 // Add a new element to `app/elements/<element-name>/`
 gulp.task('el', function() {
@@ -31,13 +28,26 @@ gulp.task('vulcanize:common', function() {
 
 // Run the Chrome Apps as debug mode
 gulp.task('run:debug', function() {
-  livereload.listen({
-    port: 9000,
-    quiet: true
-  });
+  var reload = function() {};
+
+  if (args.reload) {
+    reload = function(c) {
+      gutil.log('Reload ChromeApp', gutil.colors.cyan(c.type), ':', path.basename(c.path));
+      livereload.reload();
+    }
+
+    gutil.log('ChromeApp Reloading is', gutil.colors.cyan('enabled'));
+
+    livereload.listen({
+      port: 9000,
+      quiet: true
+    });
+  }
 
   gulp.watch([
     'app/style/*.css',
+    'app/**/*.css',
+    'app/**/*.js',
     'app/**/*.html',
     'app/scripts/**/*.js']
   ).on('change', reload);
