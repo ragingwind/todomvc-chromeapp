@@ -2,39 +2,78 @@
 
 <polymer-element name="todo-input" attributes="active">
 <template>
+  <link rel="stylesheet" href="todo.css">
   <style>
-  :host {
-    display: block;
-  }
-
-  :host([active]) {
-    display: block;
-  }
-
   .container {
     width: 90%;
     margin: 36px 5%;
-    /*background-color: rgb(250, 250, 250);*/
-    /*font-size: 24px;*/
-    /*background-color: rgba(0, 0, 0, 0.0196078);*/
     background-color: rgba(255, 255, 255, 0.901961);
     border-bottom-width: 1px;
-    border-bottom-style: dotted;
     border-bottom-color: rgb(204, 204, 204);
   }
 
   paper-input {
     width: 90%;
   }
+
+  paper-input /deep/ paper-input-decorator[disabled] {
+    height: 32px;
+  }
+
+  paper-input /deep/ paper-input-decorator[focused] {
+    height: auto;
+  }
+
+  paper-input /deep/ paper-input-decorator[disabled] /deep/ .underline {
+    border-bottom: none;
+  }
+
+  paper-input /deep/ paper-input-decorator /deep/ .focused-underline {
+    background-color: #757575;;
+  }
+
+  paper-input /deep/ paper-input-decorator[focused] /deep/ .floated-label {
+    height: auto;
+  }
+
+  paper-input /deep/ paper-input-decorator[disabled] /deep/ .floated-label {
+    height: 0;
+  }
+
+  paper-input /deep/ paper-input-decorator[focused] /deep/ .floated-label .label-text {
+    color: #757575;
+    font-style: italic;
+  }
+
+  #new-todo, .edit {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    color: inherit;
+    padding: 6px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+
+  #new-todo {
+    padding: 16px 16px 16px 16px;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+  }
   </style>
 
-  <div class="container" layout vertical center>
-      <paper-input id="title" on-blur={{blur}} label="Title"></paper-input>
-      <paper-input id="note" on-blur={{blur}}
-             label="Add a new note" on-focus={{focus}} tabindex="0"></paper-input>
-    <div class="buttons">
-      <paper-button id="write" raised class="colored" role="button">Write</paper-button>
-    </div>
+  <div class="todoapp container" layout vertical center>
+    <paper-input id="new-todo" floatinglabel on-focusin={{focusin}} disabled on-focus={{onFocus}} on-blur={{blur}} label="What needs to be done"></paper-input>
   </div>
 </template>
 <script src="todo-input.js"></script>

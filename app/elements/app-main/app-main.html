@@ -85,7 +85,7 @@
   <todo-search id="search" narrow="{{narrow}}"></todo-search>
 
   <!-- Floating action button -->
-  <paper-fab icon="icons:add" on-tap="{{showNewNameCardInput}}"></paper-fab>
+  <paper-fab icon="icons:add" on-tap="{{toggleInputForm}}"></paper-fab>
 
   <!-- Drawer panel -->
   <core-drawer-panel id="drawerPanel" responsiveWidth="600px" narrow="{{narrow}}">
@@ -112,7 +112,8 @@
       <core-toolbar id="header" class="{{ {tall : !narrow} | tokenList }}">
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
         <div flex></div>
-        <paper-icon-button on-click="{{toggle}}" icon="search">></paper-icon-button>
+        <paper-icon-button icon="check" on-click="{{checkAll}}"></paper-icon-button>
+        <paper-icon-button on-click="{{toggleSearchView}}" icon="search">></paper-icon-button>
         <paper-icon-button icon="more-vert"></paper-icon-button>
       </core-toolbar>
       <todo-input id="input"></todo-input>

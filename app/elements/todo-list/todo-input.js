@@ -1,24 +1,17 @@
 Polymer('todo-input', {
-  publish: {
-    active: {
-      value: false,
-      reflect: true
-    }
-  },
-  ready: function() {
-  },
+  active: false,
   toggle: function() {
     this.active = !this.active;
     if (this.active) {
-      this.$.note.focus();
+      this.$['new-todo'].removeAttribute('disabled', null);
+      setTimeout(function() {
+        this.$['new-todo'].focus();
+      }.bind(this), 10);
     }
   },
   blur: function(e) {
-    if (!e.relatedTarget ||
-      (e.relatedTarget !== this.$.title &&
-        e.relatedTarget !== this.$.note &&
-        e.relatedTarget !== this.$.write)) {
-      this.active = false;
-    }
+    this.active = false;
+    this.$['new-todo'].setAttribute('disabled', null);
+    this.$['new-todo'].value = '';
   }
 });
