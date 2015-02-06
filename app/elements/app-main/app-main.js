@@ -1,6 +1,17 @@
 Polymer('app-main', {
   todos: [],
   ready: function() {
+    this.todos.unshift({
+      created: new Date().toUTCString(),
+      modified: new Date().toUTCString(),
+      todo: 'doto'
+    });
+
+    this.todos.unshift({
+      created: new Date().toUTCString(),
+      modified: new Date().toUTCString(),
+      todo: 'doto'
+    });
   },
   toggleInputForm: function() {
     this.$.input.toggle();
@@ -9,11 +20,10 @@ Polymer('app-main', {
     this.$.search.toggle();
   },
   addNewTodo: function(e) {
-    this.todos.push({
+    this.todos.unshift({
       created: new Date().toUTCString(),
       modified: new Date().toUTCString(),
       todo: e.detail
     });
-    console.log(this.todos);
   }
 });

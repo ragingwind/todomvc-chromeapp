@@ -14,7 +14,8 @@
         "paper-shadow",
         "paper-fab",
         "paper-input",
-        "paper-item"
+        "paper-item",
+        "core-iconset-svg"
       ]
     }
   }

@@ -1,16 +1,12 @@
 <link rel="import" href="../../bower_components/chromeapps-starter-kit/polymer-elements.html">
-<link rel="import" href="todo-card.html">
+<link rel="import" href="todo-item.html">
 
-<polymer-element name="todo-list" attributes="cards">
+<polymer-element name="todo-list" attributes="todos">
 <template>
   <style>
   :host {
     display: block;
     width: 100%;
-  }
-
-  todo-card {
-    margin-bottom: 30px;
   }
 
   .container {
@@ -40,11 +36,11 @@
   </style>
 
   <div class="container" layout vertical center>
-    <template repeat="{{card in cards}}">
-      <todo-card>
-        <h2>{{card.username}}</h2>
-        <p>{{card.text}}</p>
-      </todo-card>
+    <template repeat="{{todo in todos}}">
+      <todo-item>
+        <label>{{todo.todo}}</label>
+        <time datetime="{{todo.created}}">2 day ago</time>
+      </todo-item>
     </template>
   </div>
 </template>

@@ -1,1 +1,0 @@
-Polymer('todo-card', {});

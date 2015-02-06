@@ -1,0 +1,68 @@
+<link rel="import" href="../../bower_components/chromeapps-starter-kit/polymer-elements.html">
+<link rel="import" href="todo-icons.html">
+
+<polymer-element name="todo-item" attributes="completed">
+<template>
+  <style>
+  :host {
+    display: block;
+    position: relative;
+    background-color: #fefefe;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 300;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+                0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+  }
+
+  :host([selected]) {
+    background-color: #dfdfdf;
+  };
+
+  paper-icon-button {
+    color: #bddad5;
+  }
+
+  paper-icon-button::shadow #icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .item {
+    margin-bottom: 10px;
+    padding: 6px;
+  }
+
+  .item ::content label {
+    white-space: pre;
+    word-break: break-word;
+    padding: 15px 60px 15px 15px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+    font-size: 24px;
+  }
+
+  .toolbar {
+    padding: 6px;
+  }
+
+  .toolbar ::content time {
+    font-size: 14px;
+    color: #777;
+  }
+  </style>
+  <div class="container" on-tap="{{select}}">
+    <div class="item" layout horizontal center>
+      <paper-icon-button id="pin" icon="todo-item:{{!completed ? 'not-completed' : 'completed'}}" on-tap="{{compete}}"></paper-icon-button>
+      <content select="label"></content>
+    </div>
+    <div class="toolbar" layout horizontal end-justified>
+      <content select="time"></content>
+    </div>
+  </div>
+</template>
+
+<script src="todo-item.js"></script>
+</polymer-element>
