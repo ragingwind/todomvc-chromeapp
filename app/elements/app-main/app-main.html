@@ -2,6 +2,7 @@
 <link rel="import" href="../todo-list/todo-list.html">
 <link rel="import" href="../todo-list/todo-storage.html">
 <link rel="import" href="../todo-list/todo-search.html">
+<link rel="import" href="../todo-list/todo-action.html">
 <link rel="import" href="../todo-list/todo-input.html">
 
 <polymer-element name="app-main">
@@ -68,6 +69,14 @@
       text-shadow: rgb(191, 191, 191) 0px -1px 0px;
     }
 
+    [main] input#searchbox {
+      border: none;
+      background: transparent;
+      font: inherit;
+      font-size: 16px;
+      outline: none;
+    }
+
     paper-fab {
       position: absolute !important;
       bottom: 27px;
@@ -107,18 +116,31 @@
       </core-menu>
     </core-header-panel>
 
+
     <!-- Right main panel -->
     <core-header-panel main>
       <core-toolbar id="header" class="{{ {tall : !narrow} | tokenList }}">
-        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-        <div flex></div>
-        <paper-icon-button icon="check" on-click="{{checkAll}}"></paper-icon-button>
-        <paper-icon-button icon="delete" on-click="{{deleteAll}}"></paper-icon-button>
-        <paper-icon-button on-click="{{toggleSearchView}}" icon="search">></paper-icon-button>
-        <paper-icon-button icon="more-vert"></paper-icon-button>
+        <template if="{{activeMode === 'main'}}">
+          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+          <div flex></div>
+          <paper-icon-button on-click="{{toggleSearch}}" icon="search">></paper-icon-button>
+          <paper-icon-button icon="more-vert"></paper-icon-button>
+        </template>
+
+        <template if="{{activeMode === 'action'}}">
+          <paper-icon-button icon="arrow-back" on-tap="{{back}}"></paper-icon-button>
+          <div flex></div>
+          <paper-icon-button icon="check" on-click="{{checkAll}}"></paper-icon-button>
+          <paper-icon-button icon="delete" on-click="{{deleteAll}}"></paper-icon-button>
+        </template>
+
+        <template if="{{activeMode === 'search'}}">
+          <paper-icon-button icon="arrow-back" on-tap="{{back}}"></paper-icon-button>
+          <input id="searchbox" placeholder="Search for" flex tabindex="0">
+        </template>
       </core-toolbar>
       <todo-input id="input" on-tap="{{toggleInputForm}}" on-new-todo="{{addNewTodo}}"></todo-input>
-      <todo-list id="notes" todos={{todos}}></todo-list>
+      <todo-list id="todos" on-item-status-changed="{{itemChanged}}" todos="{{todos}}"></todo-list>
     </core-header-panel>
 
   </core-drawer-panel>

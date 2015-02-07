@@ -37,7 +37,7 @@
 
   <div class="container" layout vertical center>
     <template repeat="{{todo in todos}}">
-      <todo-item>
+      <todo-item todo="{{todo}}">
         <label>{{todo.todo}}</label>
         <time datetime="{{todo.created}}">2 day ago</time>
       </todo-item>
