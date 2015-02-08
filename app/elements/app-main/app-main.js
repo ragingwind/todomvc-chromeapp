@@ -1,5 +1,5 @@
 Polymer('app-main', {
-  activeMode: 'main',
+  mode: 'main',
   todos: [],
   ready: function() {
     this.todos.unshift({
@@ -19,30 +19,34 @@ Polymer('app-main', {
     });
 
   },
-  changeActiveMode: function(mode) {
-    console.log(mode);
-    if (this.activeMode !== mode) {
-      if (this.activeMode === 'action') {
-        this.$.todos.unselectItems();
-      }
-      this.activeMode = mode;
+  setMode: function(mode) {
+    this.toggleNewTodo(mode === 'main');
+    this.mode = mode;
+  },
+  back: function() {
+    if (this.mode === 'action') {
+      this.$.todos.deselectAll();
+      this.$.todos.mode = 'view';
     }
+
+    this.setMode('main');
   },
   itemChanged: function(e, item) {
     if (item.status === 'selected') {
-      this.changeActiveMode('action');
+      if (this.mode !== 'action') {
+        this.$.todos.mode = 'action';
+        this.setMode('action');
+      }
     }
   },
-  back: function() {
-    this.changeActiveMode('main');
-  },
-  toggleInputForm: function() {
-    this.todos.unshift({'a':1});
-    this.todos[1].selected = true;
-    this.$.input.toggle();
-  },
   toggleSearch: function() {
-    this.changeActiveMode('search');
+    this.setMode('search');
+    setTimeout(function() {
+      this.shadowRoot.querySelector('#search-for').focus();
+    }.bind(this), 10);
+  },
+  focusNewTodo: function() {
+    this.$['new-todo'].focus();
   },
   addNewTodo: function(e) {
     this.todos.unshift({
@@ -50,5 +54,8 @@ Polymer('app-main', {
       modified: new Date().toUTCString(),
       todo: e.detail
     });
+  },
+  toggleNewTodo: function(show) {
+    this.$['new-todo'].style.display = show ? 'block' : 'none';
   }
 });

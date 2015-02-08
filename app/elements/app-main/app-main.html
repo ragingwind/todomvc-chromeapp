@@ -1,8 +1,6 @@
 <link rel="import" href="../../bower_components/chromeapps-starter-kit/polymer-elements.html">
 <link rel="import" href="../todo-list/todo-list.html">
 <link rel="import" href="../todo-list/todo-storage.html">
-<link rel="import" href="../todo-list/todo-search.html">
-<link rel="import" href="../todo-list/todo-action.html">
 <link rel="import" href="../todo-list/todo-input.html">
 
 <polymer-element name="app-main">
@@ -62,6 +60,11 @@
       border-bottom: 1px solid #ededed;
     }
 
+    [main] core-toolbar.action {
+      background: #dfdfdf;
+      border-bottom: 1px solid #dddddd;
+    }
+
     [main] core-toolbar paper-icon-button {
       color: #777;
       line-height: 43px;
@@ -69,7 +72,7 @@
       text-shadow: rgb(191, 191, 191) 0px -1px 0px;
     }
 
-    [main] input#searchbox {
+    [main] input#search-for {
       border: none;
       background: transparent;
       font: inherit;
@@ -83,18 +86,15 @@
       right: 1em;
       z-index: 10;
       background: #8d7d77;
-      background: -webkit-linear-gradient(top, rgba(182, 87, 87, 0.8), rgba(174, 72, 72, 0.8));
+      background: -webkit-linear-gradient(top, rgba(182, 87, 87, 1), rgba(174, 72, 72, 1));
     }
 
   </style>
   <!-- Storage -->
   <todo-storage id="storage" cards={{cards}}></todo-storage>
 
-  <!-- Search panel -->
-  <todo-search id="search" narrow="{{narrow}}"></todo-search>
-
   <!-- Floating action button -->
-  <paper-fab icon="icons:add" on-tap="{{toggleInputForm}}"></paper-fab>
+  <paper-fab icon="icons:add" on-tap="{{focusNewTodo}}"></paper-fab>
 
   <!-- Drawer panel -->
   <core-drawer-panel id="drawerPanel" responsiveWidth="600px" narrow="{{narrow}}">
@@ -116,31 +116,36 @@
       </core-menu>
     </core-header-panel>
 
-
     <!-- Right main panel -->
     <core-header-panel main>
-      <core-toolbar id="header" class="{{ {tall : !narrow} | tokenList }}">
-        <template if="{{activeMode === 'main'}}">
+      <core-toolbar id="header" class="{{ {tall: !narrow, action: mode !== 'main'} | tokenList }}">
+        <!-- Main toolbar -->
+        <template if="{{mode === 'main'}}">
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex></div>
           <paper-icon-button on-click="{{toggleSearch}}" icon="search">></paper-icon-button>
           <paper-icon-button icon="more-vert"></paper-icon-button>
         </template>
 
-        <template if="{{activeMode === 'action'}}">
+        <!-- Action toolbar -->
+        <template if="{{mode === 'action'}}">
           <paper-icon-button icon="arrow-back" on-tap="{{back}}"></paper-icon-button>
           <div flex></div>
           <paper-icon-button icon="check" on-click="{{checkAll}}"></paper-icon-button>
           <paper-icon-button icon="delete" on-click="{{deleteAll}}"></paper-icon-button>
         </template>
 
-        <template if="{{activeMode === 'search'}}">
+        <!-- Search toolbar -->
+        <template if="{{mode === 'search'}}">
           <paper-icon-button icon="arrow-back" on-tap="{{back}}"></paper-icon-button>
-          <input id="searchbox" placeholder="Search for" flex tabindex="0">
+          <input id="search-for" placeholder="Search for" flex tabindex="0">
         </template>
       </core-toolbar>
-      <todo-input id="input" on-tap="{{toggleInputForm}}" on-new-todo="{{addNewTodo}}"></todo-input>
-      <todo-list id="todos" on-item-status-changed="{{itemChanged}}" todos="{{todos}}"></todo-list>
+
+      <div class="content">
+        <todo-input id="new-todo" on-tap="{{focusNewTodo}}" on-new-todo="{{addNewTodo}}"></todo-input>
+        <todo-list id="todos" on-item-changed="{{itemChanged}}" todos="{{todos}}"></todo-list>
+      </div>
     </core-header-panel>
 
   </core-drawer-panel>

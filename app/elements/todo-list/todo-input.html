@@ -4,9 +4,13 @@
 <template>
   <link rel="stylesheet" href="todo.css">
   <style>
+  :host {
+    display: block;
+  }
+
   .container {
     width: 90%;
-    margin: 36px 5%;
+    margin: 36px 5% 0% 5%;
     background-color: rgba(255, 255, 255, 0.901961);
     border-bottom-width: 1px;
     border-bottom-color: rgb(204, 204, 204);
@@ -44,36 +48,10 @@
     color: #757575;
     font-style: italic;
   }
-
-  #new-todo, .edit {
-    position: relative;
-    margin: 0;
-    width: 100%;
-    font-size: 24px;
-    font-family: inherit;
-    font-weight: inherit;
-    line-height: 1.4em;
-    border: 0;
-    outline: none;
-    color: inherit;
-    padding: 6px;
-    border: 1px solid #999;
-    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-  }
-
-  #new-todo {
-    padding: 16px 16px 16px 16px;
-    border: none;
-    background: rgba(0, 0, 0, 0.003);
-    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
-  }
   </style>
 
-  <div class="todoapp container" layout vertical center>
-    <paper-input id="new-todo" floatinglabel on-focusin={{focusin}} disabled on-blur={{blur}} on-change="{{add}}" value="{{newTodo}}" label="What needs to be done"></paper-input>
+  <div class="container" layout vertical center>
+    <paper-input id="new-todo" floatinglabel disabled on-blur="{{blur}}" on-change="{{add}}" value="{{todo}}" label="What needs to be done"></paper-input>
   </div>
 </template>
 <script src="todo-input.js"></script>
