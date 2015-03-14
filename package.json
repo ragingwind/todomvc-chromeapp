@@ -1,5 +1,5 @@
 {
-  "name": "chromeapps-starter-kit",
+  "name": "todomvc-chromeapp",
   "devDependencies": {
     "bower-config": "^0.5.2",
     "gulp": "^3.8.10",
