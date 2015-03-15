@@ -1,5 +1,9 @@
 node_modules
 app/bower_components
-app/elements/common
 dist
+package
+.tmp
+.sass-cache
+*.scss.css
+*.scss.css.map
 platform/platforms
