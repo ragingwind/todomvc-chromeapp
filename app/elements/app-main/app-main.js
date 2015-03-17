@@ -2,17 +2,19 @@ Polymer('app-main', {
   mode: 'main',
   todos: [],
   ready: function() {
+    var created = new Date();
+
     this.todos.unshift({
-      created: new Date().toUTCString(),
-      modified: new Date().toUTCString(),
+      created: created.toUTCString(),
+      modified: created.toUTCString(),
       todo: 'todo',
       selected: false,
       completed: false
     });
 
     this.todos.unshift({
-      created: new Date().toUTCString(),
-      modified: new Date().toUTCString(),
+      created: created.toUTCString(),
+      modified: created.toUTCString(),
       todo: 'todo',
       selected: false,
       completed: false

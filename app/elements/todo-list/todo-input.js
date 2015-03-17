@@ -11,7 +11,7 @@ Polymer('todo-input', {
       this.$['new-todo'].focus();
     }.bind(this), 10);
   },
-  blur: function(e) {
+  blur: function() {
     this.$['new-todo'].setAttribute('disabled', null);
     this.todo = '';
   }

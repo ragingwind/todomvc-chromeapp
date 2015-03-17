@@ -1,4 +1,4 @@
 Polymer('todo-storage', {
-  todosChanged: function(todo) {
+  todosChanged: function() {
   }
 });
